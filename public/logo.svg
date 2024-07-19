@@ -1,0 +1,16 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient Background -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4A90E2"/>
+      <stop offset="100%" stop-color="#0056A4"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="50" fill="url(#bg-gradient)"/>
+
+  <!-- Airplane Symbol -->
+  <path d="M100 40 L115 80 L155 85 L115 90 L100 130 L85 90 L45 85 L85 80 Z" fill="white" stroke="#0056A4" stroke-width="2"/>
+
+  <!-- App Name Text -->
+  <!-- <text x="50%" y="90%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="24" fill="white">Travel AI</text> -->
+</svg>
