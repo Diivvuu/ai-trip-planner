@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col justify-center items-center mx-56 gap-9">
-      <div className="w-4/5 mt-20">
-        <h1 className="font-bold text-5xl text-center tracking-wide">
-          <span className="text-orange-700 leading-5">
+    <div className="flex flex-col justify-center items-center mx-56 gap-9 ">
+      <div className="lg:w-4/5 mt-28">
+        <h1 className="font-bold lg:text-4xl text-center tracking-wide">
+          <span className="text-orange-400 leading-5">
             Discover Your Next Adventure with Personalized Itineraries : <br />
           </span>
-          <span className="text-slate-600">
+          <span className="text-slate-900">
             Let AI curate your perfect travel experience, tailored just for you.
           </span>
         </h1>
