@@ -1,0 +1,102 @@
+{
+    "accommodation": [
+        {
+            "name": "Hotel The Grand",
+            "address": "Near Pratapgarh Bus Stand, Pratapgarh, Uttar Pradesh 230001",
+            "imageUrl": "https://www.oyorooms.com/hotels/hotel-the-grand-pratapgarh-141741/",
+            "geoCoordinates": "25.7518, 82.0584",
+            "rating": 4.0,
+            "description": "A comfortable and well-maintained hotel with modern amenities. Offers a good balance of price and quality."
+        },
+        {
+            "name": "Hotel Aashiyana",
+            "address": "Near Pratapgarh Bus Stand, Pratapgarh, Uttar Pradesh 230001",
+            "imageUrl": "https://www.tripadvisor.com/Tourism-g1189564-Pratapgarh_Uttar_Pradesh-Vacations.html",
+            "geoCoordinates": "25.7518, 82.0584",
+            "rating": 3.5,
+            "description": "A budget-friendly option with basic amenities, suitable for those looking for a simple stay."
+        },
+        {
+            "name": "Hotel Raj Palace",
+            "address": "Near Pratapgarh Railway Station, Pratapgarh, Uttar Pradesh 230001",
+            "imageUrl": "https://www.booking.com/hotel/in/raj-palace-pratapgarh.html",
+            "geoCoordinates": "25.7516, 82.0587",
+            "rating": 3.0,
+            "description": "A traditional-style hotel with a central location. Offers a more affordable option with basic facilities."
+        }
+    ],
+    "itinerary": [
+        {
+            "day": "Day 1",
+            "bestTime": "Morning",
+            "plan": [
+                {
+                    "placeName": "Pratapgarh Fort",
+                    "placeDetails": "A majestic fort with a rich history, built by Raja Udaybhan Singh in the 16th century.",
+                    "placeImageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Pratapgarh_Fort_%28Uttar_Pradesh%29.jpg/1280px-Pratapgarh_Fort_%28Uttar_Pradesh%29.jpg",
+                    "geoCoordinates": "25.7535, 82.0601",
+                    "ticketPricing": "₹20-₹50",
+                    "rating": 4.5,
+                    "timeTravel": "2-3 hours"
+                },
+                {
+                    "placeName": "Raja Talab",
+                    "placeDetails": "A scenic lake known for its peaceful surroundings and beautiful views.",
+                    "placeImageURL": "https://www.google.com/maps/place/Raja+Talab,+Pratapgarh,+Uttar+Pradesh+230001/@25.7548,82.0579,17z/data=!3m1!4b1!4m5!3m4!1s0x399423f6d05722fd:0x43992d83d84f492f!8m2!3d25.754812!4d82.057945",
+                    "geoCoordinates": "25.7548, 82.0579",
+                    "ticketPricing": "Free",
+                    "rating": 4.0,
+                    "timeTravel": "1-2 hours"
+                }
+            ]
+        },
+        {
+            "day": "Day 2",
+            "bestTime": "Morning",
+            "plan": [
+                {
+                    "placeName": "Dargah of Hazrat Syed Ahmed Shah",
+                    "placeDetails": "A revered Sufi shrine, attracting devotees and tourists.",
+                    "placeImageURL": "https://www.google.com/maps/place/Dargah+of+Hazrat+Syed+Ahmed+Shah,+Pratapgarh,+Uttar+Pradesh+230001/@25.7541,82.0606,17z/data=!3m1!4b1!4m5!3m4!1s0x399423f6ca414d5f:0x2307727539d945df!8m2!3d25.754102!4d82.060636",
+                    "geoCoordinates": "25.7541, 82.0606",
+                    "ticketPricing": "Free",
+                    "rating": 4.0,
+                    "timeTravel": "1-2 hours"
+                },
+                {
+                    "placeName": "Pratapgarh Museum",
+                    "placeDetails": "A museum showcasing the history and culture of Pratapgarh, with artifacts and exhibits.",
+                    "placeImageURL": "https://www.google.com/search?q=Pratapgarh+Museum+Uttar+Pradesh&tbm=isch&ved=2ahUKEwi7473325n8AhX7wAIHHVj0A_0Q2-cCegQIABAA&oq=Pratapgarh+Museum+Uttar+Pradesh&gs_lcp=CgNpbWcQA1D1-gNY2gZY3oYgaABwAHgAgAHPAYgBwgEEMgYIABAFEB4yBggAEAgQHjIGCAAQCBAeMgYIABAFEB4yBggAEAgQHjIGCAAQCBAeMgYIABAFEB4yBggAEAgQHjIGCAAQCBAeMgYIABAFEB4yBggAEAgQHjIGCAAQCBAeMgYIABAFEB46CAgAEAgQDRAeOgYIABAFEB46CAgAEAgQDRAeOgYIABAFEB46BAgAEB46CAgAEAgQDRAeOgYIABAFEB46CAgAEAgQDRALWgDcEWPIBBjI5gILoAxCABBCxAxCDAToLCC4QxwEQrwEyAEowAEB&sclient=img&ei=2N22Yp6VJoW6gAfqnr2oAg&bih=703&biw=1440&hl=en#imgrc=AFw6t2b_0X2NQM",
+                    "geoCoordinates": "25.7543, 82.0587",
+                    "ticketPricing": "₹10-₹20",
+                    "rating": 3.5,
+                    "timeTravel": "1-2 hours"
+                }
+            ]
+        },
+        {
+            "day": "Day 3",
+            "bestTime": "Morning",
+            "plan": [
+                {
+                    "placeName": "Baba Gorakhnath Mandir",
+                    "placeDetails": "A renowned Hindu temple dedicated to the revered saint, Gorakhnath.",
+                    "placeImageURL": "https://www.google.com/maps/place/Baba+Gorakhnath+Mandir,+Pratapgarh,+Uttar+Pradesh+230001/@25.7531,82.0588,17z/data=!3m1!4b1!4m5!3m4!1s0x399423f6d518958d:0x4978b7038d540e30!8m2!3d25.753123!4d82.058822",
+                    "geoCoordinates": "25.7531, 82.0588",
+                    "ticketPricing": "Free",
+                    "rating": 4.0,
+                    "timeTravel": "1-2 hours"
+                },
+                {
+                    "placeName": "Sharda Devi Temple",
+                    "placeDetails": "A popular temple dedicated to the goddess Sharda, known for its spiritual significance.",
+                    "placeImageURL": "https://www.google.com/search?q=Sharda+Devi+Temple+Pratapgarh&tbm=isch&ved=2ahUKEwi-457C35n8AhVB_7cAHcJ3A1IQ2-cCegQIABAA&oq=Sharda+Devi+Temple+Pratapgarh&gs_lcp=CgNpbWcQA1D1-gNY2gZY3oYgaABwAHgAgAHPAYgBwgEEMgYIABAFEB4yBggAEAgQHjIGCAAQCBAeMgYIABAFEB4yBggAEAgQHjIGCAAQCBAeMgYIABAFEB4yBggAEAgQHjIGCAAQCBAeMgYIABAFEB4yBggAEAgQHjIGCAAQCBAeMgYIABAFEB46CAgAEAgQDRAeOgYIABAFEB46CAgAEAgQDRAeOgYIABAFEB46BAgAEB46CAgAEAgQDRAeOgYIABAFEB46CAgAEAgQDRALWgDcEWPIBBjI5gILoAxCABBCxAxCDAToLCC4QxwEQrwEyAEowAEB&sclient=img&ei=wN22Ypy4K4H2gAfO3J24Ag&bih=703&biw=1440&hl=en#imgrc=AFw6t2b_0X2NQM",
+                    "geoCoordinates": "25.7522, 82.0598",
+                    "ticketPricing": "Free",
+                    "rating": 4.0,
+                    "timeTravel": "1-2 hours"
+                }
+            ]
+        }
+    ]
+}
