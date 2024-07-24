@@ -20,10 +20,13 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useGoogleLogin } from "@react-oauth/google";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "@/service/firebaseConfig";
 
 const CreateTrip = () => {
   const [place, setPlace] = useState("");
   const [openDialog, setOpenDialog] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState([]);
   const handleInputChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
@@ -64,6 +67,7 @@ const CreateTrip = () => {
       toast("Please enter all the details");
       return;
     }
+    setLoading(true);
     const FINAL_PROMPT = AI_PROMPT.replace(
       "{location}",
       formData?.location?.label
@@ -75,6 +79,8 @@ const CreateTrip = () => {
     // console.log(FINAL_PROMPT);
     const result = await chatSession.sendMessage(FINAL_PROMPT);
     console.log("--", result?.response?.text());
+    setLoading(false);
+    SaveAiTrip(result?.response?.text());
   };
 
   const GetUserProfile = (tokenInfo) => {
@@ -90,12 +96,26 @@ const CreateTrip = () => {
       )
       .then((resp) => {
         console.log(resp.data);
+        localStorage.setItem("user", JSON.stringify(resp.data));
+        setOpenDialog(false);
+        onGenerateTrip();
       })
       .catch((error) => {
         console.error("Error fetching user profile:", error);
       });
   };
-
+  const SaveAiTrip = async (TripData) => {
+    setLoading(true);
+    const user = JSON.parse(localStorage.getItem("user"));
+    const docId = Date.now().toString();
+    await setDoc(doc(db, "AITrips", docId), {
+      userChoice: formData,
+      tripData: JSON.parse(TripData),
+      userEmail: user?.email,
+      id: docId,
+    });
+    setLoading(false);
+  };
   return (
     <div className="flex flex-col justify-center bg-black ">
       {/* heading */}
@@ -192,8 +212,8 @@ const CreateTrip = () => {
         </div>
       </div>
       <div className="flex justify-center items-center my-4 ">
-        <Button className="w-fit" onClick={onGenerateTrip}>
-          Generate Trip
+        <Button className="w-fit" onClick={onGenerateTrip} disabled={loading}>
+          {loading ? "test" : "Generate Trip"}
         </Button>
       </div>
       <Dialog open={openDialog}>
@@ -203,7 +223,9 @@ const CreateTrip = () => {
             <DialogDescription>
               <img src="/logo.png" className="w-20" />
               {/* <h2>Sign in with Google</h2> */}
-              <span>Sign in to the App with google Authentication securely</span>
+              <span>
+                Sign in to the App with google Authentication securely
+              </span>
               <Button onClick={login} className="w-full mt-5">
                 Sign in with Google
               </Button>
