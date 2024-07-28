@@ -8,7 +8,7 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCMLGiviS3C8I-u_hJrjSpARpM22R7fKhE",
+  apiKey: import.meta.env.FIREBASE_API_KEY,
   authDomain: "travel-advisor-f57fb.firebaseapp.com",
   projectId: "travel-advisor-f57fb",
   storageBucket: "travel-advisor-f57fb.appspot.com",
