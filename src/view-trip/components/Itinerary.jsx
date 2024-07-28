@@ -1,4 +1,5 @@
 import React from "react";
+import ItineraryCard from "./ItineraryCard";
 
 const Itinerary = ({ trip }) => {
   return (
@@ -11,18 +12,7 @@ const Itinerary = ({ trip }) => {
               <div>{item?.day}</div>
               <div>
                 {item?.plan?.map((plan, i) => {
-                  return (
-                    <div key={i}>
-                      <div className="flex gap-2">
-                        <img src={plan.placeImageURL} />
-                        {plan.placeName}
-                        {plan.rating}
-                        {plan.ticketPricing}
-                        {plan.timeTravel}
-                        {plan.palceDetails}
-                      </div>
-                    </div>
-                  );
+                  return <ItineraryCard plan={plan} key={i} />;
                 })}
               </div>
             </div>
