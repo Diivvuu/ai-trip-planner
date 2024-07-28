@@ -22,12 +22,14 @@ import {
 import { useGoogleLogin } from "@react-oauth/google";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "@/service/firebaseConfig";
+import { useNavigate } from "react-router-dom";
 
 const CreateTrip = () => {
   const [place, setPlace] = useState("");
   const [openDialog, setOpenDialog] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState([]);
+  const navigate = useNavigate();
   const handleInputChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
   };
@@ -114,7 +116,7 @@ const CreateTrip = () => {
       userEmail: user?.email,
       id: docId,
     });
-    setLoading(false);
+    navigate("/view-trip/" + docId);
   };
   return (
     <div className="flex flex-col justify-center bg-black ">
