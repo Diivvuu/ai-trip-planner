@@ -28,14 +28,14 @@ const ViewTrip = () => {
   }, [tripId]);
 
   return (
-    <div>
-      {/* information section */}
+    <div className="w-full min-h-screen">
+      {/* Information Section */}
       <InfoSection trip={trip} />
-      {/* recommended hotels */}
+      {/* Recommended Hotels */}
       <Hotels trip={trip} />
-      {/* daily plan */}
+      {/* Daily Plan */}
       <Itinerary trip={trip} />
-      {/* footer (not necessary) */}
+      {/* Footer (not necessary) */}
     </div>
   );
 };

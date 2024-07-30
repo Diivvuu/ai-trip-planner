@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import {
   AI_PROMPT,
   SelectBudgetOptions,
-  SelectTavelList,
+  SelectTravelList,
 } from "@/constants/options";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -30,6 +30,7 @@ const CreateTrip = () => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState([]);
   const navigate = useNavigate();
+
   const handleInputChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
   };
@@ -78,7 +79,7 @@ const CreateTrip = () => {
       .replace("{traveler}", formData?.noOfPeople)
       .replace("{budget}", formData?.budget)
       .replace("{totalDays}", formData?.noOfDays);
-    // console.log(FINAL_PROMPT);
+
     const result = await chatSession.sendMessage(FINAL_PROMPT);
     console.log("--", result?.response?.text());
     setLoading(false);
@@ -106,6 +107,7 @@ const CreateTrip = () => {
         console.error("Error fetching user profile:", error);
       });
   };
+
   const SaveAiTrip = async (TripData) => {
     setLoading(true);
     const user = JSON.parse(localStorage.getItem("user"));
@@ -118,119 +120,124 @@ const CreateTrip = () => {
     });
     navigate("/view-trip/" + docId);
   };
+
   return (
-    <div className="flex flex-col justify-center bg-black ">
-      {/* heading */}
-      <div className="mt-12 px-24">
-        <h1 className="text-left font-bold text-slate-400 text-3xl">
+    <div className="flex flex-col justify-center items-center bg-gradient-to-b from-blue-100 to-gray-100 min-h-screen py-8 px-4">
+      {/* Heading */}
+      <div className="mt-8 text-center w-full max-w-2xl">
+        <h1 className="font-bold text-blue-900 text-4xl mb-4">
           Travel Preferences 🚢✈️⛱️
         </h1>
-        <p className="text-left font-semibold text-slate-300 text-md">
+        <p className="text-gray-700 text-lg mb-8">
           Help us understand your travel plans by providing some details below.
           This information will help us tailor recommendations and make your
           travel experience as enjoyable as possible.
         </p>
       </div>
-      {/* destination choice */}
-      <div className="flex justify-between items-center px-24 mt-12">
-        <div className="text-white text-xl font-semibold">
-          What is your Destination ?
-        </div>
-        <div className="w-full max-w-lg mt-4">
-          <GooglePlacesAutocomplete
-            apiKey={import.meta.env.VITE_GOOGLE_PLACE_API_KEY}
-            selectProps={{
-              placeholder: "Search for places...",
-              onChange: handleSelect,
-            }}
-          />
-        </div>
+
+      {/* Destination Choice */}
+      <div className="flex flex-col w-full max-w-2xl mb-8">
+        <label className="text-black text-2xl font-semibold mb-2">
+          What is your Destination?
+        </label>
+        <GooglePlacesAutocomplete
+          apiKey={import.meta.env.VITE_GOOGLE_PLACE_API_KEY}
+          selectProps={{
+            placeholder: "Search for places...",
+            onChange: handleSelect,
+          }}
+        />
       </div>
-      {/* no. of days */}
-      <div className="flex justify-between items-center px-24 mt-12 ">
-        <div className="text-white text-xl font-semibold">
-          For how many days are you planning ?
-        </div>
-        <div className="w-full max-w-lg">
-          <Input
-            placeholder="Ex.6"
-            type="Number"
-            onChange={(e) => handleInputChange("noOfDays", e.target.value)}
-          />
-        </div>
+
+      {/* Number of Days */}
+      <div className="flex flex-col w-full max-w-2xl mb-8">
+        <label className="text-black text-2xl font-semibold mb-2">
+          For how many days are you planning?
+        </label>
+        <Input
+          placeholder="e.g., 6"
+          type="number"
+          onChange={(e) => handleInputChange("noOfDays", e.target.value)}
+          className="w-full p-2 border rounded"
+        />
       </div>
-      {/* budget */}
-      <div className="flex flex-col justify-center items-start gap-y-8 px-24 mt-12">
-        <h2 className="text-white text-xl font-semibold">
+
+      {/* Budget */}
+      <div className="flex flex-col w-full max-w-2xl mb-8">
+        <h2 className="text-black text-2xl font-semibold mb-4">
           What is your budget?
         </h2>
-        <div className="grid grid-cols-3 gap-6 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {SelectBudgetOptions.map((item, index) => (
             <div
               key={index}
-              className={`rounded-xl border-2 border-transparent hover:border-orange-500 hover:bg-zinc-800 transition-all duration-300 p-6 cursor-pointer ${
+              className={`rounded-xl border-2 border-transparent hover:border-blue-500 hover:bg-white transition-all duration-300 p-6 cursor-pointer ${
                 formData?.budget === item.title
-                  ? "shadow-lg bg-orange-600 border-white"
-                  : ""
+                  ? "shadow-lg bg-blue-600 text-white"
+                  : "bg-white"
               }`}
               onClick={() => handleInputChange("budget", item.title)}
             >
-              <div className="flex flex-col items-center justify-center text-center">
-                <div className="text-5xl mb-2">{item.icon}</div>
-                <h2 className="text-white text-2xl font-bold mb-2">
-                  {item.title}
-                </h2>
-                <p className="text-white text-lg font-medium">{item.desc}</p>
+              <div className="flex flex-col items-center text-center">
+                <div className="text-4xl mb-2">{item.icon}</div>
+                <h2 className="text-lg font-bold mb-1">{item.title}</h2>
+                <p className="text-sm">{item.desc}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
-      {/* no. of people */}
-      <div className="flex flex-col justify-center items-start gap-y-8 px-24 mt-12">
-        <h2 className="text-white text-xl font-semibold">
-          Who do you plan on travelling with on your adventure?
+
+      {/* Number of People */}
+      <div className="flex flex-col w-full max-w-2xl mb-8">
+        <h2 className="text-black text-2xl font-semibold mb-4">
+          Who do you plan on travelling with?
         </h2>
-        <div className="grid grid-cols-3 border-blue-100 w-full gap-x-24 gap-y-8">
-          {SelectTavelList.map((item, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {SelectTravelList.map((item, index) => (
             <div
               key={index}
-              className={`rounded-xl border-2 border-transparent hover:border-orange-500 hover:bg-zinc-800 transition-all duration-300 p-6 cursor-pointer ${
+              className={`rounded-xl border-2 border-transparent hover:border-blue-500 hover:bg-white transition-all duration-300 p-6 cursor-pointer ${
                 formData?.noOfPeople === item.people
-                  ? "shadow-lg bg-orange-600 border-white"
-                  : ""
+                  ? "shadow-lg bg-blue-600 text-white"
+                  : "bg-white"
               }`}
-              onClick={(e) => handleInputChange("noOfPeople", item.people)}
+              onClick={() => handleInputChange("noOfPeople", item.people)}
             >
               <div className="flex items-center justify-center">
-                <h2 className="text-4xl">{item.icon}</h2>
-                <h2 className="text-white text-xl font-bold">{item.title}</h2>
+                <div className="text-4xl mr-2">{item.icon}</div>
+                <h2 className="text-lg font-bold">{item.title}</h2>
               </div>
-              <p className="text-white text-center font-semibold">
-                {item.desc}
-              </p>
+              <p className="text-center mt-2">{item.desc}</p>
             </div>
           ))}
         </div>
       </div>
-      <div className="flex justify-center items-center my-4 ">
-        <Button className="w-fit" onClick={onGenerateTrip} disabled={loading}>
-          {loading ? "test" : "Generate Trip"}
+
+      {/* Generate Trip Button */}
+      <div className="flex justify-center w-full max-w-2xl">
+        <Button
+          onClick={onGenerateTrip}
+          disabled={loading}
+          className="w-full py-3 text-lg"
+        >
+          {loading ? "Generating Trip..." : "Generate Trip"}
         </Button>
       </div>
+
+      {/* Sign In Dialog */}
       <Dialog open={openDialog}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Sign in</DialogTitle>
+            <DialogTitle>Sign In</DialogTitle>
             <DialogDescription>
-              <img src="/logo.png" className="w-20" />
-              {/* <h2>Sign in with Google</h2> */}
-              <span>
-                Sign in to the App with google Authentication securely
-              </span>
-              <Button onClick={login} className="w-full mt-5">
-                Sign in with Google
-              </Button>
+              <div className="flex flex-col items-center">
+                <img src="/logo.png" alt="Logo" className="w-20 mb-4" />
+                <span>Sign in with Google Authentication securely</span>
+                <Button onClick={login} className="w-full mt-5">
+                  Sign in with Google
+                </Button>
+              </div>
             </DialogDescription>
           </DialogHeader>
         </DialogContent>

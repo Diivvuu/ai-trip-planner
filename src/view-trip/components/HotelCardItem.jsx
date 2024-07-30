@@ -1,10 +1,8 @@
+import { PHOTO_REF_URL } from "@/constants/options";
 import { GetPlaceDetails } from "@/service/GlobalApi";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-const PHOTO_REF_URL =
-  "https://places.googleapis.com/v1/{NAME}/media?maxHeightPx=600&maxWidthPx=600&key=" +
-  import.meta.env.VITE_GOOGLE_PLACE_API_KEY;
+import { CiStar } from "react-icons/ci";
 const HotelCardItem = ({ h }) => {
   const [photoUrl, setPhotoUrl] = useState();
   useEffect(() => {
@@ -20,7 +18,7 @@ const HotelCardItem = ({ h }) => {
 
       const PhotoUrl = PHOTO_REF_URL.replace(
         "{NAME}",
-        resp.data.places[0].photos[1].name
+        resp.data.places[1].photos[1].name
       );
       setPhotoUrl(PhotoUrl);
     });
@@ -36,11 +34,16 @@ const HotelCardItem = ({ h }) => {
         }
         target="_blank"
       >
-        <div>
-          <img src={photoUrl} />
-          <div>{h.name}</div>
-          <div>{h.address}</div>
-          <div>{h.rating}</div>
+        <div className="flex flex-col items-center justify-center">
+          <img className="w-80 h-52 rounded-md" src={photoUrl} alt={h?.name} />
+          <div className="flex w-full items-center justify-between px-8 mt-2">
+            <div className="font-bold">{h.name}</div>
+            <div className="flex items-center">
+              {h.rating}
+              <CiStar />
+            </div>
+          </div>
+          <div className=" w-full px-8 my-1 text-md">{h.address}</div>
         </div>
       </Link>
     </div>
