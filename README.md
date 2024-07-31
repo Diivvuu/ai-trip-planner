@@ -1,4 +1,8 @@
-
+to run this in your machine, you can clone it and make a .env.local file in the root folder which consists of 
+VITE_GOOGLE_PLACE_API_KEY
+VITE_GOOGLE_GEMINI_AI_API_KEY 
+VITE_GOOGLE_AUTH_CLIENT_ID 
+FIREBASE_API_KEY 
 ![Screenshot 2024-07-30 113221](https://github.com/user-attachments/assets/1300f4a4-1a9e-409c-ba8a-46bca25721c0)
 ![Screenshot 2024-07![Uploading Screenshot 2024-07-30 113155.png…]()
 -30 113212](https://github.com/user-attachments/assets/136b31f3-f3c9-4b31-a2de-3737d5109561)
